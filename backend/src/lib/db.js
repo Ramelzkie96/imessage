@@ -6,9 +6,8 @@ export async function connectDB() {
         const mongoUri = process.env.MONGO_URI;
 
         if(!mongoUri) {
-            throw new Error("Mongo_URL is required");
+            throw new Error("Mongo_URI is required");
         }
-        console.log("MONGO_URI:", process.env.MONGO_URI);
         const conn = await mongoose.connect(mongoUri);
 
         console.log("MongoDb connected", conn.connection.host);
